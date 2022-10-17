@@ -67,8 +67,7 @@ def print_particle(f, particle_dict):
         x_coordinate = particle_dict[key]
         print(str(x_coordinate))
         img.putpixel((x_coordinate[0],x_coordinate[1]), (255,0,0))
-        print('AAAAAA')
-    img.save('./result/'+str(f)+'.jpg',"JPEG", quality=100)
+    img.save('./result/'+str(f)+'.jpg', quality=100)
     return
 
 def creat_gif():
@@ -103,7 +102,7 @@ def stop_criteria(particle_dict, image):
 
     percent = count/len(particle_dict)
 
-    if percent < 0.6:
+    if percent < 0.7:
         return True
     else:
         return False
