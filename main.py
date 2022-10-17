@@ -58,10 +58,17 @@ def particle_swarm():
             print(str(x))
         f += 1
         print('Итерация: '+str(f))
-    print_particle()
+        print_particle(f, particle_dict)
     return
 
-def print_particle():
+def print_particle(f, particle_dict):
+    img = Image.open('./image/image.jpg')
+    for key in particle_dict.keys():
+        x_coordinate = particle_dict[key]
+        print(str(x_coordinate))
+        img.putpixel((x_coordinate[0],x_coordinate[1]), (255,0,0))
+        print('AAAAAA')
+    img.save('./result/'+str(f)+'.jpg',"JPEG", quality=100)
     return
 
 def creat_gif():
