@@ -17,7 +17,7 @@ def particle_swarm():
         local_min[x] = []
         local_min[x] = particle_dict[x]
 
-    image = load_image('./gradient/gradient.jpg')
+    image = load_image('./image.jpg')
     global_min = search_global_min(image,local_min,global_min)
 
     # for key in particle_dict.keys():
