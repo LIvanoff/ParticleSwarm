@@ -4,12 +4,12 @@ import os
 from PIL import Image
 
 def particle_swarm():
-    global_min= [] # глобальный оптимум
+    global_min = [] # глобальный оптимум
     local_min = {} # локальный оптимум всех точек
     particle_dict = {}
     velocity = {}
 
-    for x in range(1,21):
+    for x in range(1,4):
         particle_dict[x] = []
         particle_dict[x] = [random.randint(0, 99) for i in range(2)]
         velocity[x] = []
@@ -17,12 +17,21 @@ def particle_swarm():
         local_min[x] = []
         local_min[x] = particle_dict[x]
 
-    image = load_image('./image.jpg')
+    image = load_image('./image/image.jpg')
     global_min = search_global_min(image,local_min,global_min)
 
-    # for key in particle_dict.keys():
-    #     for x in particle_dict[key]:
-    #
+    for key in particle_dict.keys():
+        x_coordinate = particle_dict[key]
+        y_coordinate = local_min[key]
+        x = image[x_coordinate[0]][x_coordinate[1]].tolist()
+        y = image[y_coordinate[0]][y_coordinate[1]].tolist()
+        if x < y:
+            local_min[key] = x_coordinate
+            g = image[global_min[0]][global_min[1]]
+            if y < g:
+                global_min[0] = x_coordinate[0]
+                global_min[1] = x_coordinate[1]
+
 
     print_particle()
     return
@@ -40,26 +49,15 @@ def load_image(path : str):
 
 def search_global_min(image,local_min,global_min):
     global_min = local_min[1]
-    glob_coor = []
 
     for key in local_min.keys():
         coordinate = local_min[key]
-        x_gl = global_min[0]
-        y_gl = global_min[1]
         better = image[coordinate[0]][coordinate[1]].tolist()
-        worse = image[x_gl][y_gl].tolist()
+        worse = image[global_min[0]][global_min[1]].tolist()
         if better < worse:
-            print(better)
-            print(worse)
             global_min[0] = coordinate[0]
             global_min[1] = coordinate[1]
-            glob_coor = better
 
-    # for key in local_min.keys():
-    #         if image[local_min[0]][local_min[1]] < image[x_gl][y_gl]:
-    #             global_min.append(image[local_min[0]][local_min[1]])
-    print('glob = '+str(global_min))
-    print(glob_coor)
     return global_min
 
 
