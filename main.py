@@ -32,6 +32,23 @@ def particle_swarm():
                 global_min[0] = x_coordinate[0]
                 global_min[1] = x_coordinate[1]
 
+    while (stop_criteria(particle_dict)):
+        for key in particle_dict.keys():
+            alpha = random.normalvariate(mu, sigma)
+            beta = random.normalvariate(mu, sigma)
+            velocity[key] = alpha*(local_min[key]-particle_dict[key]) + beta*(global_min-particle_dict[key])
+            particle_dict[key] = particle_dict[key] + 1*velocity[key]
+
+            x_coordinate = particle_dict[key]
+            y_coordinate = local_min[key]
+            x = image[x_coordinate[0]][x_coordinate[1]].tolist()
+            y = image[y_coordinate[0]][y_coordinate[1]].tolist()
+            if x < y:
+                local_min[key] = x_coordinate
+                g = image[global_min[0]][global_min[1]]
+                if y < g:
+                    global_min[0] = x_coordinate[0]
+                    global_min[1] = x_coordinate[1]
 
     print_particle()
     return
@@ -60,6 +77,21 @@ def search_global_min(image,local_min,global_min):
 
     return global_min
 
+def stop_criteria(particle_dict):
+    count = 0
+
+    for key in particle_dict.keys():
+        coordinate = particle_dict[key]
+        pos = image[coordinate[0]][coordinate[1]].tolist()
+        if pos < [10, 10, 10]:
+            count += 1
+
+        persent = count/len(particle_dict)
+
+    if percent < 0,51:
+        return True
+    else:
+        return False
 
 if __name__ == '__main__':
     particle_swarm()
