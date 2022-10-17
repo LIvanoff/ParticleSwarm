@@ -3,7 +3,7 @@ from main import *
 
 class MyTestCase(unittest.TestCase):
     def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
+        self.assertEqual(particle_swarm(), '\b\w\b'+'.png')
 
 
 if __name__ == '__main__':
