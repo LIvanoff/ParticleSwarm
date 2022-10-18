@@ -9,15 +9,15 @@ def particle_swarm():
     particle_dict = {} # координаты частиц
     velocity = {} # скорость частиц
 
-    for x in range(1,50):
+    for x in range(1,290):
         particle_dict[x] = []
-        particle_dict[x] = [random.randint(0, 99) for i in range(2)]
+        particle_dict[x] = [random.randint(0, 199) for i in range(2)]
         velocity[x] = []
-        velocity[x] = [random.randint(-10,10) for i in range(2)]
+        velocity[x] = [random.randint(-1,1) for i in range(2)]
         local_min[x] = []
         local_min[x] = particle_dict[x]
 
-    image = load_image('./image/image.jpg')
+    image = load_image('./image/image4.jpg')
     global_min = search_global_min(image,local_min,global_min)
 
     for key in particle_dict.keys():
@@ -42,7 +42,7 @@ def particle_swarm():
             np_vel = np.array(velocity[key])
             np_glo = np.array(global_min)
 
-            velocity[key] = ((np.multiply(beta,(np_glo - np_par)))).tolist() #'''(np.multiply(alpha,(np_loc-np_par))) + '''
+            velocity[key] = ((np.multiply(alpha,(np_loc-np_par))) + (np.multiply(beta,(np_glo - np_par)))).tolist() #''''''
             particle_dict[key] = (np_par + np_vel).tolist() # должно быть ..+(np.multiply1*np_vel[key]), но смысла особого в этом нет
 
             x_coordinate = particle_dict[key]
@@ -51,7 +51,7 @@ def particle_swarm():
             x = [255, 255, 255]
             #print('x_coordinate '+str(x_coordinate))
 
-            if ((x_coordinate[0] <= 99) & (x_coordinate[1] <= 99)) & ((x_coordinate[0] >=0) & (x_coordinate[1] >=0)):
+            if ((x_coordinate[0] <= 199) & (x_coordinate[1] <= 199)) & ((x_coordinate[0] >=0) & (x_coordinate[1] >=0)):
                 x = image[x_coordinate[0]][x_coordinate[1]].tolist()
 
 
@@ -71,12 +71,12 @@ def particle_swarm():
     return
 
 def print_particle(f, particle_dict):
-    img = Image.open('./image/image.jpg')
+    img = Image.open('./image/image4.jpg')
     for key in particle_dict.keys():
         x_coordinate = particle_dict[key]
         #print('print '+str(x_coordinate))
 
-        if ((x_coordinate[0] <= 99) & (x_coordinate[1] <= 99)) & ((x_coordinate[0] >=0) & (x_coordinate[1] >=0)):
+        if ((x_coordinate[0] <= 199) & (x_coordinate[1] <= 199)) & ((x_coordinate[0] >=0) & (x_coordinate[1] >=0)):
             img.putpixel((x_coordinate[0],x_coordinate[1]), (255,0,0))
 
     img.save('./result/'+str(f)+'.jpg', quality=100)
@@ -97,7 +97,7 @@ def creat_gif():
         save_all=True,
         append_images=frames[1:],  # Срез который игнорирует первый кадр.
         optimize=True,
-        duration=500,
+        duration=1000,
         loop=0)
 
     return
@@ -127,7 +127,7 @@ def stop_criteria(particle_dict, image):
 
     for key in particle_dict.keys():
         coordinate = particle_dict[key]
-        if ((coordinate[0] <= 99) & (coordinate[1] <= 99)) & ((coordinate[0] >= 0) & (coordinate[1] >= 0)):
+        if ((coordinate[0] <= 199) & (coordinate[1] <= 199)) & ((coordinate[0] >= 0) & (coordinate[1] >= 0)):
             color = image[coordinate[0]][coordinate[1]].tolist()
 
         if color == [0, 0, 0]:
@@ -136,7 +136,7 @@ def stop_criteria(particle_dict, image):
     if count != 0:
         percent = count / len(particle_dict)
 
-    if percent < 0.5:
+    if percent < 0.9:
         return True
     else:
         return False
