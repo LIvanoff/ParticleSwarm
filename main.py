@@ -5,15 +5,15 @@ from PIL import Image
 
 def particle_swarm():
     global_min = [] # глобальный оптимум
-    local_min = {} # локальный оптимум всех точек
+    local_min = {} # локальный оптимум
     particle_dict = {}
     velocity = {}
 
-    for x in range(1,30):
+    for x in range(1,4):
         particle_dict[x] = []
         particle_dict[x] = [random.randint(0, 99) for i in range(2)]
         velocity[x] = []
-        velocity[x] = [random.randint(0, 1) for i in range(2)]
+        velocity[x] = [random.randint(-10, 10) for i in range(2)]
         local_min[x] = []
         local_min[x] = particle_dict[x]
 
@@ -59,6 +59,7 @@ def particle_swarm():
         f += 1
         print('Итерация: '+str(f))
         print_particle(f, particle_dict)
+    creat_gif()
     return
 
 def print_particle(f, particle_dict):
@@ -71,6 +72,24 @@ def print_particle(f, particle_dict):
     return
 
 def creat_gif():
+    frames = []
+    name_list = os.listdir('./result')
+
+    for frame_number in name_list:
+        # Открываем изображение каждого кадра.
+        frame = Image.open('./result/'+str(frame_number))
+        # Добавляем кадр в список с кадрами.
+        frames.append(frame)
+    print('AAAAAAAAAAAAAAAAAAAAAAAA')
+    # Берем первый кадр и в него добавляем оставшееся кадры.
+    frames[0].save(
+        './result.gif',
+        save_all=True,
+        append_images=frames[1:],  # Срез который игнорирует первый кадр.
+        optimize=True,
+        duration=500,
+        loop=0)
+    print("AAAAAAAAAAAAAAAAAAAAAAAAAAA")
     return
 
 def load_image(path : str):
@@ -100,9 +119,10 @@ def stop_criteria(particle_dict, image):
         if pos < [1, 1, 1]:
             count += 1
 
-    percent = count/len(particle_dict)
+    if count != 0:
+        percent = count / len(particle_dict)
 
-    if percent < 0.7:
+    if percent < 0.8:
         return True
     else:
         return False
