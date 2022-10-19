@@ -9,11 +9,11 @@ def particle_swarm():
     particle_dict = {} # координаты частиц
     velocity = {} # скорость частиц
 
-    for x in range(1,190): # инициализация координат частиц
+    for x in range(1,55): # инициализация координат частиц
         particle_dict[x] = []
         particle_dict[x] = [random.randint(0, 199) for i in range(2)]
         velocity[x] = []
-        velocity[x] = [random.randint(-1,1) for i in range(2)]
+        velocity[x] = [random.randint(-11,11) for i in range(2)]
         local_min[x] = []
         local_min[x] = particle_dict[x]
 
