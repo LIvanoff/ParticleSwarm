@@ -8,8 +8,6 @@
 
 ## Анимация поведения роя частиц
 
-![result](https://user-images.githubusercontent.com/39859999/196706585-e7ed9603-8891-4235-a5dd-2512986c5629.gif)
-
-<img src="https://github.com/LIvanoff/ParticleSwarm/blob/master/result/result.gif" width="400" height="400" />
+<img src="https://github.com/LIvanoff/ParticleSwarm/blob/master/result/result.gif" width="500" height="500" />
 
 Программа написана в рамках практических работ по предметам третьего курса Прогаммной инженерии 09.03.04 Тестирование и верификация программного обеспечения и Системный анализ данных в СППР в РТУ МИРЭА
