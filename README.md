@@ -4,7 +4,7 @@
 
 который будет соответсовать чёрному пятну со значениями RGB (0,0,0)
 <p align="center" width="100%">
-  <img src="https://github.com/LIvanoff/ParticleSwarm/blob/master/image/image_readme.png" width="500" height="500" />
+  <img src="https://github.com/LIvanoff/ParticleSwarm/blob/master/image/image_readme.png" width="400" height="400" />
 </p>
 
 ## Анимация поведения роя частиц
