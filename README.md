@@ -4,11 +4,7 @@
 
 который будет соответсовать чёрному пятну со значениями RGB (0,0,0)
 
-
-<p align="center" width="100%">
-    <img width="33%" src="[https://i.stack.imgur.com/RJj4x.png](https://user-images.githubusercontent.com/39859999/196707755-2a2d9586-0d6e-4ba9-b6eb-8abfcd1bf389.png)"> 
-</p>
-![2022-10-19_16-36-48](https://user-images.githubusercontent.com/39859999/196707755-2a2d9586-0d6e-4ba9-b6eb-8abfcd1bf389.png =300x300)
+![2022-10-19_16-36-48](https://user-images.githubusercontent.com/39859999/196707755-2a2d9586-0d6e-4ba9-b6eb-8abfcd1bf389.png)
 
 ## Анимация поведения роя частиц
 
