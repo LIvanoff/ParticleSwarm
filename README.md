@@ -6,7 +6,9 @@
 <p align="center" width="100%">
   <img src="https://github.com/LIvanoff/ParticleSwarm/blob/master/image/image_readme.png" width="500" height="500" />
 </p>
+
 ## Анимация поведения роя частиц
+
 <p align="center" width="100%">
   <img src="https://github.com/LIvanoff/ParticleSwarm/blob/master/result/result.gif" width="500" height="500" />
 </p>
