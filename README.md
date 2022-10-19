@@ -4,10 +4,10 @@
 
 который будет соответсовать чёрному пятну со значениями RGB (0,0,0)
 <p align="left" width="100%">
-  ![2022-10-19_16-36-48](https://user-images.githubusercontent.com/39859999/196707755-2a2d9586-0d6e-4ba9-b6eb-8abfcd1bf389.png)
-</p>
+![2022-10-19_16-36-48](https://user-images.githubusercontent.com/39859999/196707755-2a2d9586-0d6e-4ba9-b6eb-8abfcd1bf389.png)
+
 ## Анимация поведения роя частиц
-
-<img src="https://github.com/LIvanoff/ParticleSwarm/blob/master/result/result.gif" width="500" height="500" />
-
+<p align="left" width="100%">
+  <img src="https://github.com/LIvanoff/ParticleSwarm/blob/master/result/result.gif" width="500" height="500" />
+</p>
 Программа написана в рамках практических работ по предметам третьего курса Прогаммной инженерии 09.03.04 Тестирование и верификация программного обеспечения и Системный анализ данных в СППР в РТУ МИРЭА
