@@ -20,7 +20,7 @@ def particle_swarm():
     image = load_image('./image/image5.jpg')
     global_min = search_global_min(image,local_min,global_min) # инициализация глобального оптимума
 
-    for key in particle_dict.keys():
+    for key in particle_dict.keys(): # поиск лок минимума каждой частицы и глоб минимума
         x_coordinate = particle_dict[key]
         y_coordinate = local_min[key]
         x = image[x_coordinate[0]][x_coordinate[1]].tolist()
@@ -32,7 +32,7 @@ def particle_swarm():
                 global_min[0] = x_coordinate[0]
                 global_min[1] = x_coordinate[1]
     f = 0
-    while (stop_criteria(particle_dict, image)):
+    while (stop_criteria(particle_dict, image)): # изменение скоростей и координат частиц
         for key in particle_dict.keys():
             alpha = random.randint(0,1)
             beta = random.randint(0,1)
@@ -107,7 +107,7 @@ def load_image(path : str):
         image = np.asarray(img)
     return image
 
-def search_global_min(image,local_min,global_min):
+def search_global_min(image,local_min,global_min): # поиск глоб минимума для инициализации
     global_min = local_min[1]
 
     for key in local_min.keys():
@@ -120,7 +120,7 @@ def search_global_min(image,local_min,global_min):
 
     return global_min
 
-def stop_criteria(particle_dict, image):
+def stop_criteria(particle_dict, image): # критерий остановы
     count = 0.0
     percent  = 0.0
     color = [255,255,255]
