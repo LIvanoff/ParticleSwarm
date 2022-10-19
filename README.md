@@ -4,7 +4,7 @@
 
 который будет соответсовать чёрному пятну со значениями RGB (0,0,0)
 
-![image5](https://user-images.githubusercontent.com/39859999/196706288-7da6c7bc-c83c-49bc-a6fe-4be919c296d5.jpg)
+![image5](https://user-images.githubusercontent.com/39859999/196706924-84154017-3717-4159-bfe5-b8197dd9509d.jpg)
 
 ## Анимация поведения роя частиц
 
