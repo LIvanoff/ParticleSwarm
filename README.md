@@ -3,9 +3,9 @@
 В качестве задачи оптимизации программа должна найти глобальный минимум картинки,
 
 который будет соответсовать чёрному пятну со значениями RGB (0,0,0)
-
-![2022-10-19_16-36-48](https://user-images.githubusercontent.com/39859999/196707755-2a2d9586-0d6e-4ba9-b6eb-8abfcd1bf389.png)
-
+<p align="left" width="100%">
+  ![2022-10-19_16-36-48](https://user-images.githubusercontent.com/39859999/196707755-2a2d9586-0d6e-4ba9-b6eb-8abfcd1bf389.png)
+</p>
 ## Анимация поведения роя частиц
 
 <img src="https://github.com/LIvanoff/ParticleSwarm/blob/master/result/result.gif" width="500" height="500" />
