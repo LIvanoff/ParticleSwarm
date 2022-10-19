@@ -9,7 +9,7 @@ def particle_swarm():
     particle_dict = {} # координаты частиц
     velocity = {} # скорость частиц
 
-    for x in range(1,290):
+    for x in range(1,190): # инициализация координат частиц
         particle_dict[x] = []
         particle_dict[x] = [random.randint(0, 199) for i in range(2)]
         velocity[x] = []
@@ -17,8 +17,8 @@ def particle_swarm():
         local_min[x] = []
         local_min[x] = particle_dict[x]
 
-    image = load_image('./image/image4.jpg')
-    global_min = search_global_min(image,local_min,global_min)
+    image = load_image('./image/image5.jpg')
+    global_min = search_global_min(image,local_min,global_min) # инициализация глобального оптимума
 
     for key in particle_dict.keys():
         x_coordinate = particle_dict[key]
@@ -71,7 +71,7 @@ def particle_swarm():
     return
 
 def print_particle(f, particle_dict):
-    img = Image.open('./image/image4.jpg')
+    img = Image.open('./image/image5.jpg')
     for key in particle_dict.keys():
         x_coordinate = particle_dict[key]
         #print('print '+str(x_coordinate))
@@ -79,21 +79,21 @@ def print_particle(f, particle_dict):
         if ((x_coordinate[0] <= 199) & (x_coordinate[1] <= 199)) & ((x_coordinate[0] >=0) & (x_coordinate[1] >=0)):
             img.putpixel((x_coordinate[0],x_coordinate[1]), (255,0,0))
 
-    img.save('./result/'+str(f)+'.jpg', quality=100)
+    img.save('./result/new_result/'+str(f)+'.jpg', quality=100)
     return
 
 def creat_gif():
     frames = []
-    name_list = os.listdir('./result')
+    name_list = os.listdir('./result/new_result')
 
     for frame_number in name_list:
         # Открываем изображение каждого кадра.
-        frame = Image.open('./result/'+str(frame_number))
+        frame = Image.open('./result/new_result/'+str(frame_number))
         # Добавляем кадр в список с кадрами.
         frames.append(frame)
     # Берем первый кадр и в него добавляем оставшееся кадры.
     frames[0].save(
-        './result/result.gif',
+        './result/new_result/result.gif',
         save_all=True,
         append_images=frames[1:],  # Срез который игнорирует первый кадр.
         optimize=True,
