@@ -4,8 +4,6 @@
 
 который будет соответсовать чёрному пятну со значениями RGB (0,0,0)
 
-![2022-10-19_16-36-48](https://user-images.githubusercontent.com/39859999/196707038-f82e2f89-b8a3-4ccf-9229-d114cb32bda3.png)
-
 ## Анимация поведения роя частиц
 
 ![result](https://user-images.githubusercontent.com/39859999/196706585-e7ed9603-8891-4235-a5dd-2512986c5629.gif)
